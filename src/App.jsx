@@ -11,11 +11,11 @@ const SYSTEM_PROMPT = `You are a weekly schedule planning assistant. Guide the u
 1. Non-negotiables (fixed commitments, sleep, meals, recurring appointments)
 2. Tasks (work, errands, projects to fit in)
 3. Notes (energy levels, preferences, deadlines)
-Be concise and warm. When you have enough information, end your message with the exact phrase: "Ready to build your schedule!"`;
+Be concise and warm. When you have enough information, end your message with the exact phrase: "Please wait whle I build your schedule!"`;
 
 const bot = {
   id: 0,
-  name: 'bot'
+  name: 'Thyme'
 };
 const user = {
   id: 1,
@@ -25,7 +25,7 @@ const initialMessages = [{
   id: 1,
   author: bot,
   timestamp: new Date(),
-  text: "Let's get started! First, give me a list of your meetings, calls, and other non-negotables."
+  text: "Let's plan your week, together! First, give me a list of your meetings, calls, and other non-negotables."
 }];
 
 const App = () => {
@@ -65,7 +65,7 @@ const addNewMessage = async (event) => {
       appendBotMessage(reply);
 
       // if the model signals it's done gathering, generate the schedule
-      if (reply.includes('Ready to build your schedule!')) {
+      if (reply.includes('Please wait while I build your schedule!')) {
         const events = await generateSchedule(updatedHistory);
         setScheduleData(events);
         console.log(events)
@@ -86,7 +86,7 @@ const addNewMessage = async (event) => {
           authorId={user.id} 
           onSendMessage={addNewMessage} 
            placeholder={isLoading ? 'Waiting for response...' : 'Type a message...'}
-          style={{ maxWidth: '100%'}} 
+          style={{ width: '100%', maxWidth: '400px'}} 
           className="k-m-auto" 
           height={'100vh'} />
       </div>

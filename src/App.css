@@ -1,5 +1,6 @@
-@import '@progress/kendo-theme-default/dist/all.css';
+@import '@progress/kendo-theme-meridian/dist/all.css';
 @import '@progress/kendo-theme-utils/dist/all.css';
+@import './thyme.css'; 
 
 html,
 body {
