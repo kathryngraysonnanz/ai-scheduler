@@ -1,0 +1,23 @@
+@import '@progress/kendo-theme-default/dist/all.css';
+@import '@progress/kendo-theme-utils/dist/all.css';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--kendo-color-app-surface);
+  color: var(--kendo-color-on-app-surface);
+  font-family: var(--kendo-font-family-sans-serif);
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.flex {
+  display: flex;
+}
